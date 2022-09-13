@@ -5,7 +5,7 @@ Instruções:
     # mysql -u root -p
 3) CREATE DATABASE raryel_crmbonus;
 4) Importar o arquivo db.sql
-# mysql -u root -p turimfase2 < db.sql
+# mysql -u root -p raryel_crmbonus < db.sql
 
 5) Inicializar o servidor PHP na pasta do projeto
     $ bin/cake server
