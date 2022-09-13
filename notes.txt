@@ -1,0 +1,3 @@
+Criar usuário se não existir
+Home
+Marcar bonus anterior como usado e data do uso
