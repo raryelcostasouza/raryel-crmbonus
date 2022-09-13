@@ -92,32 +92,6 @@ class BonusController extends AppController
     }
 
     /**
-     * Edit method
-     *
-     * @param string|null $id Bonus id.
-     * @return \Cake\Http\Response|null|void Redirects on successful edit, renders view otherwise.
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
-    public function edit($id = null)
-    {
-        $bonus = $this->Bonus->get($id, [
-            'contain' => [],
-        ]);
-        if ($this->request->is(['patch', 'post', 'put'])) {
-            $bonus = $this->Bonus->patchEntity($bonus, $this->request->getData());
-            if ($this->Bonus->save($bonus)) {
-                $this->Flash->success(__('The bonus has been saved.'));
-
-                return $this->redirect(['action' => 'index']);
-            }
-            $this->Flash->error(__('The bonus could not be saved. Please, try again.'));
-        }
-        $customers = $this->Bonus->Customers->find('list', ['limit' => 200])->all();
-        $users = $this->Bonus->Users->find('list', ['limit' => 200])->all();
-        $this->set(compact('bonus', 'customers', 'users'));
-    }
-
-    /**
      * Delete method
      *
      * @param string|null $id Bonus id.
