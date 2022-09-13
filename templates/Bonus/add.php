@@ -93,7 +93,14 @@
                 //calcula o valor a pagar considerando o desconto de compras anteriores
                 var desconto = $("#desconto-bonus-anterior").val();
                 var valor_final = valor_total - desconto;
-                $("#valor-a-pagar").val(valor_final);
+                if (valor_final < 0)
+                {
+                    $("#valor-a-pagar").val(0);
+                }
+                else
+                {
+                    $("#valor-a-pagar").val(valor_final);
+                }
             }
         });
         
