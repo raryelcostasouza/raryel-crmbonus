@@ -111,6 +111,19 @@ class BonusTable extends Table
         $rules->add($rules->existsIn('customer_id', 'Customers'), ['errorField' => 'customer_id']);
         $rules->add($rules->existsIn('user_id', 'Users'), ['errorField' => 'user_id']);
 
+
+        $checkDatesValid = function($Bonus) {
+            if ($Bonus->validity_start < $Bonus->validity_end) {
+                return true;
+            }
+    
+            return false;
+        };
+        $rules->add($checkDatesValid, [
+            'errorField' => 'validity_end',
+            'message' => 'The validity end must be after validity start!'
+        ]);
+
         return $rules;
     }
 }
